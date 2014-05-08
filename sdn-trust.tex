@@ -5,6 +5,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{fourier}
+\usepackage[backend=bibtex,sorting=nyt,style=alphabetic]{biblatex}
+\addbibresource{bib/sdn.bib}
+\addbibresource{bib/trust.bib}
 \author{Christopher C. Lamb}
 \title{Towards Robust Trust Models for Software Defined Networks}
 \begin{document}
@@ -13,14 +16,17 @@
 \begin{@twocolumnfalse}
 \maketitle
 \begin{abstract}
-Software defined networks (SDNs) are becoming more popular in industry, though currently still only deployed by very technically-savvy organizations.  Nevertheless, as the advantages of using SDN become more clear, future adoption promises to be high, with all network equipment vendors quickly moving to deploy products providing SDN capabilities.  This impending wider adoption demands that security implications within SDN be more clearly understood.  Today, mechanisms through which vendors can provide enhanced integrity and availability as well as agent-centric authentication and non-repudiation are poorly understood and have yet to be thoroughly investigated.  In this paper, we present our current work outlining how we can define trust in SDN and what trust in SDN means for various operational components.  We also address what the operational characteristics that impact trust propagation are, and present promising approaches to managing trust within SDN as an extension of these definitions and attributes.
+{\small\sl\noindent Software defined networks (SDNs) are becoming more popular in industry, though currently still only deployed by very technically-savvy organizations.  Nevertheless, as the advantages of using SDN become more clear, future adoption promises to be high, with all network equipment vendors quickly moving to deploy products providing SDN capabilities.  This impending wider adoption demands that security implications within SDN be more clearly understood.  Today, mechanisms through which vendors can provide enhanced integrity and availability as well as agent-centric authentication and non-repudiation are poorly understood and have yet to be thoroughly investigated.  In this paper, we present our current work outlining how we can define trust in SDN and what trust in SDN means for various operational components.  We also address what the operational characteristics that impact trust propagation are, and present promising approaches to managing trust within SDN as an extension of these definitions and attributes.}
 \end{abstract}
 \end{@twocolumnfalse}
 ]
 
 \section{Introduction}
+Clearly, Software Defined Networks (SDNs) are here to stay. The specific technologies are still in question, in that the community has yet to decide if OpenFlow will be the most common southbound protocol, or if it will be supplanted by some other alternative.  Nevertheless, intense industry involvement in SDN technologies and techniques makes it clear that organizations will be adopting SDN in the future, whether they would like to or not~\cite{opendaylight}.  With
 
 \section{Trust in Software Defined Networks}
+In order to frame the discussion of trust appropriately, we first propose a common model for the SDN control plane.  This model allows us to define the common elements we need to examine, to describe the trust releationships, and describe precisely why these components are forced to trust other elements in the overall trust model.
+
 
 \subsection{A Common Structural Trust Model}
 
@@ -32,4 +38,5 @@ Software defined networks (SDNs) are becoming more popular in industry, though c
 
 \section{Conclusions}
 
+\printbibliography
 \end{document}
