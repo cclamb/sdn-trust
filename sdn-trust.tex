@@ -8,7 +8,7 @@
 \usepackage[backend=bibtex,sorting=nyt,style=alphabetic]{biblatex}
 \addbibresource{bib/sdn.bib}
 \addbibresource{bib/trust.bib}
-\author{Christopher C. Lamb}
+\author{Christopher C. Lamb \\ Department of Electrical and Computer Engineering \\ The University of New Mexico}
 \title{Towards Robust Trust Models for Software Defined Networks}
 \begin{document}
 
@@ -22,9 +22,11 @@
 ]
 
 \section{Introduction}
-Clearly, Software Defined Networks (SDNs) are here to stay. The specific technologies are still in question, in that the community has yet to decide if OpenFlow will be the most common southbound protocol, or if it will be supplanted by some other alternative.  Nevertheless, intense industry involvement in SDN technologies and techniques makes it clear that organizations will be adopting SDN in the future, whether they would like to or not~\cite{opendaylight}.  With
+Clearly, Software Defined Networks (SDNs) are here to stay. The specific technologies are still in question, in that the community has yet to decide if OpenFlow will be the most common southbound protocol, or if it will be supplanted by some other alternative~\cite{rfc6241}.  Nevertheless, intense industry involvement in SDN technologies and techniques makes it clear that organizations will be adopting SDN in the future, whether they would like to or not~\cite{opendaylight}.  In order to effectively deploy SDN systems, we need to have a clear understanding of how we can secure them.  To begin to secure SDN, we need to establish a more general picture of how trust propagates through SDN systems so we can more clearly envision how we can take advantage of hardened or redundant systems to enhance the security posture of deployed systems.  The way we extend trust to system components in operational systems is key to defining and clarifying overall security postures in SDN architectures.
 
-\section{Trust in Software Defined Networks}
+This paper represents our work in progress toward defining a rigorous trust model for SDN systems.  As of today, we have framed the problem and defined a general SDN control architectural model over which we will begin to apply mathematical trust models.  This paper will describe this reference model for the SDN control plane, highlight the key attributes of realistic SDN control planes a trust model must handle, and describe promising approaches to mathematically describing trust in SDN.  We clost the paper with references to related work and our future plans in this area.
+
+\section{Trust in SDN}
 In order to frame the discussion of trust appropriately, we first propose a common model for the SDN control plane.  This model allows us to define the common elements we need to examine, to describe the trust releationships, and describe precisely why these components are forced to trust other elements in the overall trust model.
 
 
