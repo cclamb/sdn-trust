@@ -1,25 +1,35 @@
-\documentclass[10pt,letterpaper,twocolumn]{article}
+\documentclass[12pt,conference]{IEEEtran}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{fourier}
-\usepackage[backend=bibtex,sorting=nyt,style=alphabetic]{biblatex}
+\usepackage[backend=bibtex,sorting=nyt,style=ieee]{biblatex}
 \addbibresource{bib/sdn.bib}
 \addbibresource{bib/trust.bib}
 \author{Christopher C. Lamb \\ Department of Electrical and Computer Engineering \\ The University of New Mexico}
+\author{
+\IEEEauthorblockN{Christopher C. Lamb}
+\IEEEauthorblockA{Dept. of Electrical and Computer Engineering\\
+The University of New Mexico\\
+Albuquerque, New Mexico 87131\\
+Email: cclamb@ece.unm.edu}
+\and
+\IEEEauthorblockN{Gregory L. Heileman}
+\IEEEauthorblockA{Dept. of Electrical and Computer Engineering\\
+The University of New Mexico\\
+Albuquerque, New Mexico 87131\\
+Email: heileman@ece.unm.edu}
+}
+
 \title{Towards Robust Trust Models for Software Defined Networks}
 \begin{document}
 
-\twocolumn[
-\begin{@twocolumnfalse}
+
 \maketitle
 \begin{abstract}
-{\small\sl\noindent Software defined networks (SDNs) are becoming more popular in industry, though currently still only deployed by very technically-savvy organizations.  Nevertheless, as the advantages of using SDN become more clear, future adoption promises to be high, with all network equipment vendors quickly moving to deploy products providing SDN capabilities.  This impending wider adoption demands that security implications within SDN be more clearly understood.  Today, mechanisms through which vendors can provide enhanced integrity and availability as well as agent-centric authentication and non-repudiation are poorly understood and have yet to be thoroughly investigated.  In this paper, we present our current work outlining how we can define trust in SDN and what trust in SDN means for various operational components.  We also address what the operational characteristics that impact trust propagation are, and present promising approaches to managing trust within SDN as an extension of these definitions and attributes.}
+Software defined networks (SDNs) are becoming more popular in industry, though currently still only deployed by very technically-savvy organizations.  Nevertheless, as the advantages of using SDN become more clear, future adoption promises to be high, with all network equipment vendors quickly moving to deploy products providing SDN capabilities.  This impending wider adoption demands that security implications within SDN be more clearly understood.  Today, mechanisms through which vendors can provide enhanced integrity and availability as well as agent-centric authentication and non-repudiation are poorly understood and have yet to be thoroughly investigated.  In this paper, we present our current work outlining how we can define trust in SDN and what trust in SDN means for various operational components.  We also address what the operational characteristics that impact trust propagation are, and present promising approaches to managing trust within SDN as an extension of these definitions and attributes.
 \end{abstract}
-\end{@twocolumnfalse}
-]
 
 \section{Introduction}
 Clearly, Software Defined Networks (SDNs) are here to stay. The specific technologies are still in question, in that the community has yet to decide if OpenFlow will be the most common southbound protocol, or if it will be supplanted by some other alternative~\cite{rfc6241}.  Nevertheless, intense industry involvement in SDN technologies and techniques makes it clear that organizations will be adopting SDN in the future, whether they would like to or not~\cite{opendaylight}.  In order to effectively deploy SDN systems, we need to have a clear understanding of how we can secure them.  To begin to secure SDN, we need to establish a more general picture of how trust propagates through SDN systems so we can more clearly envision how we can take advantage of hardened or redundant systems to enhance the security posture of deployed systems.  The way we extend trust to system components in operational systems is key to defining and clarifying overall security postures in SDN architectures.
@@ -35,10 +45,22 @@ Over time, researchers began to incorporate other external elements, primarily t
 
 Shortly thereafter, due to the combined drives to both provide support for multiple protocols for switch management and to enable more established network vendors to claim a more competitive position in the burgeoning SDN market, software engineers began to propose architectures similar to what we see today in OpenDaylight.  These systems began the current trend toward northbound and southbound interface separation, where the southbound interfaces used various protocols to communicate with network forwarding hardware while northbound interfaces enabled applications to submit control preferences, requests, or commands to the overall network management system~\cite{opendaylight,BIG_NETWORK_CONTROLLER}.
 
-
 \subsection{A Common Structural Trust Model}
+This gives us five distinct elements in a typical modern SDN system.  This includes a {\bf host}, the originator and termination of network traffic.  These are network clients and can include computing devices of any profile, from watches to refrigerators and cars to typical workstations and notebooks.  
 
-\subsection{Differentiating Attrubutes of Software Defined Networks}
+Hosts connect to {\bf switches}, which perform any number of network traffic management including routing.  Switches connect hosts to larger networks and the wider internet.  
+
+In SDN systems, switches are controlled by {\bf controllers}, which implement rules describing what flows should be allowed.  Note that in modern SDNs, all switches need not be SDN switches to enable programmable networks, but within this model we only consider SDN-enabled switches as our focus is on SDN networks and trust, not traditional non-programmable network hardware.  Controllers implement policies and host programs that process both northbound and southbound interfaces to support application and switch communication respectively.  
+
+In order to manage networks effectively and apply defined policies appropriately, controllers need access to wider contextual information including operational state, overarching policy information, authentication data, and the like.  This information is contained in groups of {\bf repositories}, hosted in various geographic locations.  Information contained in repositories can very well be cached, though in the scope of this model we will regard repository caches as repositories as they still provide relevant and necessary information to controllers.  
+
+Finally, we include groups of {\bf applications} that submit network management requests to various controllers.  The controllers can regard such requests as optional or required, depending on the authority of the submitting application.
+
+All communication is over {\bf networks} of various physical types.  These networks can be wireless or wired, using virtually any protocol, though IP networks are arguably the most common realistically and originally the only supported network type~\cite{OF_STANDARD_FIRST}.  We can use different physical networks for control plane communication or a single network for both control and data plane packets.
+
+
+
+\subsection{Differentiating Attributes of Software Defined Networks}
 
 \subsection{Promising Approaches to Trust Management}
 
