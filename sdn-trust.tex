@@ -48,7 +48,14 @@ Over time, researchers began to incorporate other external elements, primarily t
 Shortly thereafter, due to the combined drives to both provide support for multiple protocols for switch management and to enable more established network vendors to claim a more competitive position in the burgeoning SDN market, software engineers began to propose architectures similar to what we see today in OpenDaylight.  These systems began the current trend toward northbound and southbound interface separation, where the southbound interfaces used various protocols to communicate with network forwarding hardware while northbound interfaces enabled applications to submit control preferences, requests, or commands to the overall network management system~\cite{opendaylight,big_network_controller}.
 
 \subsection{A Common Structural Trust Model}
-This gives us five distinct elements in a typical modern SDN system.  This includes a {\bf host}, the originator and termination of network traffic.  These are network clients and can include computing devices of any profile, from watches to refrigerators and cars to typical workstations and notebooks.  
+This gives us five distinct elements in a typical modern SDN system, as shown in Figure~\ref{fig:reference-model}.  This includes a {\bf host}, the originator and termination of network traffic.  These are network clients and can include computing devices of any profile, from watches to refrigerators and cars to typical workstations and notebooks.  
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{images/reference-model.pdf}
+\caption{A reference model for SDN based on modern systems with north- and south-bound interfaces.  Note the contextual data repositories, and the highlighted trust domain specific to SDN.}
+\label{fig:reference-model}
+\end{figure}
 
 Hosts connect to {\bf switches}, which perform any number of network traffic management including routing.  Switches connect hosts to larger networks and the wider internet.  
 
