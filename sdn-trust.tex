@@ -67,6 +67,19 @@ Finally, we include groups of {\bf applications} that submit network management 
 
 All communication is over {\bf networks} of various physical types.  These networks can be wireless or wired, using virtually any protocol, though IP networks are arguably the most common realistically and originally the only supported network type~\cite{openflow1.0}.  We can use different physical networks for control plane communication or a single network for both control and data plane packets.
 
+The next sections describe from a confidentiality, integrity, avaibility, non-repudiation, an authentication perspective the types of trust that components expect within a typical SDN.  The hosts and relationships outlined below follow those presented in Figure~\ref{fig:reference-model}.
+
+\subsubsection{host $\leftrightarrow$ switch} A host must be able to trust that a switch will provide flow routing services compliant to local policies.  This may or may not include respecting the confidentiality of the traffic. In some cases, like traffic in places of employment, confidentiality may not realistically be an expectation because of content monitoring or data lost prevention needs.  Integrity expectations with respect to actual traffic are high in all cases.  Certain network middleboxes may change packet header information, but should never alter data bytes within a given packet.  Availability expectations for networks overall are very high as well.  Hosts have no expectation of non-repudiation of switch services as all flow management operations are transient.  Ideally, hosts would be able to authenticate switches however without or with very little {\sl a priori} knowledge.  Also, note that these expectations are in fact of the entire network; the connecting switch is just representative of the network to the host.
+
+Switches do not access services provided by hosts, and need to have very little trust in a given host.  They may however enforce non-repudiation with respect to individual flows or packets and users generating given flows or packets.  A typical example of this kind of requirement stems from network forensics needed after malicious insider activities. Switches may also require host and user authentication.  This kind of authentication is a prerequisite for non-repudiation, but may also be needed in networks with strict policies regarding who can connect.
+
+\subsubsection{switch $\leftrightarrow$ controller}
+Switches extend a tremendous amount of trust in controllers.  Some of that trust is in fact transitive as well, based on trust extended first to switches by attached hosts.
+
+\subsubsection{controller $\leftrightarrow$ repository}
+
+\subsubsection{controller $\leftrightarrow$ application}
+
 \subsection{Differentiating Attributes of Software Defined Networks}
 
 \subsection{Promising Approaches to Trust Management}
