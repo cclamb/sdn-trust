@@ -4,6 +4,14 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{fixme}
+\fxsetup{
+    status=draft,
+    author=,
+    layout=margin,
+    theme=color,
+    targetlayout=color
+}
 \usepackage[backend=bibtex,sorting=nyt,style=ieee]{biblatex}
 \addbibresource{bib/sdn.bib}
 \addbibresource{bib/trust.bib}
@@ -68,6 +76,13 @@ Finally, we include groups of {\bf applications} that submit network management 
 All communication is over {\bf networks} of various physical types.  These networks can be wireless or wired, using virtually any protocol, though IP networks are arguably the most common realistically and originally the only supported network type~\cite{openflow1.0}.  We can use different physical networks for control plane communication or a single network for both control and data plane packets.
 
 The next sections describe from a confidentiality, integrity, avaibility, non-repudiation, an authentication perspective the types of trust that components expect within a typical SDN.  The hosts and relationships outlined below follow those presented in Figure~\ref{fig:reference-model}.
+
+\subsection{Elements of Trust}
+Users have different definitions of trust that, from their perspective, may not be distinct.  For example, a given user may trust a given network provided by an internet service provider (ISP) to maintain confidentiality while not differentiating between extending trust to individual switches or sub-networks within that ISP and the ISP network as a whole.  Likewise, recent trends where content providers negotiate preferential access to ISP networks presents a similar issue with respect to availability.
+
+We also need to assume a definition of trust.\fxfatal{finish defn}{}
+
+Assuming this definition of trust, we will also assume a level of trust granularity that allows us to use trust as a viable security management tool.  In corporate systems, A user or a user's system is rarely in a position to select from different networks or access points (though this is not the case necessarily with wireless networks, as anyone who has been in an airport recently can attest).  Likewise, a given switch cannot simply decide to retract trust from {\sl all} controllers, though that switch can neglect flow control recommendations from a single switch.
 
 \subsubsection{host $\leftrightarrow$ switch} A host must be able to trust that a switch will provide flow routing services compliant to local policies.  This may or may not include respecting the confidentiality of the traffic. In some cases, like traffic in places of employment, confidentiality may not realistically be an expectation because of content monitoring or data lost prevention needs.  Integrity expectations with respect to actual traffic are high in all cases.  Certain network middleboxes may change packet header information, but should never alter data bytes within a given packet.  Availability expectations for networks overall are very high as well.  Hosts have no expectation of non-repudiation of switch services as all flow management operations are transient.  Ideally, hosts would be able to authenticate switches however without or with very little {\sl a priori} knowledge.  Also, note that these expectations are in fact of the entire network; the connecting switch is just representative of the network to the host.
 
