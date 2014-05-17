@@ -76,7 +76,7 @@ Finally, we include groups of {\bf applications} that submit network management 
 
 All communication is over {\bf networks} of various physical types.  These networks can be wireless or wired, using virtually any protocol, though IP networks are arguably the most common realistically and originally the only supported network type~\cite{openflow1.0}.  We can use different physical networks for control plane communication or a single network for both control and data plane packets.
 
-The next sections describe from a confidentiality, integrity, avaibility, non-repudiation, an authentication perspective the types of trust that components expect within a typical SDN.  The hosts and relationships outlined below follow those presented in Figure~\ref{fig:reference-model}.
+The next sections describe from a confidentiality, integrity, availability, non-repudiation, an authentication perspective the types of trust that components expect within a typical SDN.  The hosts and relationships outlined below follow those presented in Figure~\ref{fig:reference-model}.
 
 \subsection{Elements of Trust}
 Users have different definitions of trust that, from their perspective, may not be distinct.  For example, a given user may trust a given network provided by an internet service provider (ISP) to maintain confidentiality while not differentiating between extending trust to individual switches or sub-networks within that ISP and the ISP network as a whole.  Likewise, recent trends where content providers negotiate preferential access to ISP networks presents a similar issue with respect to availability.
@@ -96,6 +96,7 @@ Controllers again access no critical switch services and are correspondingly les
 
 \subsubsection{controller $\leftrightarrow$ repository}
 
+
 \subsubsection{controller $\leftrightarrow$ application}
 
 \subsection{Differentiating Attributes of Software Defined Networks}
@@ -103,7 +104,7 @@ Controllers again access no critical switch services and are correspondingly les
 \subsection{Promising Approaches to Trust Management}
 
 \section{Related Work}
-Williamson had argued against formally defining trust, claiming that other component measures could be used more effectively without combining them into a single concept~\cite{Wi:93}.  Later, McKnight and Chervany divided trust into reliability trust and decision trust~\cite{McCh:96}, where reliability trust demonstrates that an entity trusts a third party to perform a given action, while decision trust demonstrates trust that the action will be performed correctly.  Josang and Presti extended this distinction in types of trust and derived a formal model using reliability, utility, and risk~\cite{JoPr:04}.  Trust can be alternatively classified into provision, access, delegation, identity, and contextual trust, where McKnight and Chervany's reliability and decision trust could be sublasses of Delegation trust.
+Williamson had argued against formally defining trust, claiming that other component measures could be used more effectively without combining them into a single concept~\cite{Wi:93}.  Later, McKnight and Chervany divided trust into reliability trust and decision trust~\cite{McCh:96}, where reliability trust demonstrates that an entity trusts a third party to perform a given action, while decision trust demonstrates trust that the action will be performed correctly.  Josang and Presti extended this distinction in types of trust and derived a formal model using reliability, utility, and risk~\cite{JoPr:04}.  Trust can be alternatively classified into provision, access, delegation, identity, and contextual trust, where McKnight and Chervany's reliability and decision trust could be subclasses of Delegation trust.
 
 \section{Conclusions}
 
