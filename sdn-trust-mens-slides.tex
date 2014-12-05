@@ -74,8 +74,7 @@ University of New Mexico}
 % This command will make the logo appear on all frames excluding the title frame.
 \logo {\includegraphics[width = 2.5cm]{UNM}}
 
-\begin{frame}
-\frametitle{Networks in the Bad Old Days}
+\begin{frame}\frametitle{Networks in the Bad Old Days}
 \begin{figure}[!t]
 \centering
 \includegraphics[height=2.75in]{lrg-network}
@@ -88,63 +87,102 @@ University of New Mexico}
 \begin{figure}[!t]
 \centering
 \includegraphics[height=2.75in]{lrg-network-sdn}
-%\caption{Hierarchical Results from Comcast}
 \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{Original Goals}
-\begin{beamerboxesrounded}[shadow]{Contribution of Work}
-The contribution of this work is a quantitative analysis of policy-centric overlay network options, associated taxonomies of use, and prototypical technology proofs-of-concept.
-\end{beamerboxesrounded}
+\frametitle{Brave New Implications}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{reference-model}
+\column{.5\textwidth}
+\begin{beamerboxesrounded}[shadow]{Unintended Results of SDN}
+Moving to centralized management has profound implications.
 \begin{itemize}
-\item \textit{Network Control Options} --- {\small This includes various types networks and associated strengths and weaknesses addressing centralized and decentralized models.}
-\item \textit{Taxonomies of Use} --- {\small Depending on the specific usage management requirements and context, different overlays have different applicability; this work will provide guidance on suitability; it will eventually lead to how to manage data flow within SDN-capable infrastructure.}
-\item \textit{Prototypical Technologies} --- {\small Examples and proofs-of-concept will be required to appropriately analyze various architectural alternatives.}
+\item Trust loci provides greater spoofing opportunities
+\item Smaller number of involved systems refines target space
+\item Trust concentration leads to larger attack surface
+\item Single compromise can have outsized effects
 \end{itemize}
+\end{beamerboxesrounded}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Meeting the Goals}
-\begin{beamerboxesrounded}[shadow]{Network Control Options}
-{\small I have developed and analysed multiple types of overlay systems, both centralized (hierarchical) and non-centralized (non-hierarchical), with differing topologies and integrated content-centric control.}
+\frametitle{Brave New Implications}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{reference-model}
+\column{.5\textwidth}
+\begin{beamerboxesrounded}[shadow]{Unintended Results of SDN}
+Moving to centralized management has profound implications.
+\begin{itemize}
+\item Trust loci provides greater spoofing opportunities
+\item Smaller number of involved systems refines target space
+\item Trust concentration leads to larger attack surface
+\item Single compromise can have outsized effects
+\end{itemize}
 \end{beamerboxesrounded}
-~\\
-\begin{beamerboxesrounded}[shadow]{Taxonomies of Use}
-{\small I have established and verified a taxonomy of usage management and applied that within the network providing mechanisms extendible to SDN use.}
-\end{beamerboxesrounded}
-~\\
-\begin{beamerboxesrounded}[shadow]{Prototypical Technologies}
-{\small Prototype information-centric networks are running between the Rackspace and Amazon clouds.}
-\end{beamerboxesrounded}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Impact and Originality}
+\frametitle{host $\Longleftrightarrow$ switch}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{ra-h-sw}
+\column{.5\textwidth}
 \begin{itemize}
-\item Information-centric architectures common in future internet designs
-\item Significant work with respect to name/object binding, overall topologies, approaches
-\item No significant work yet on exploiting new capabilities in information-centricity for enhanced security
-\begin{itemize}
-\item {\small Absense of strict layering}
-\item {\small Lack of packetization preserves contexts} 
-\item {\small Evolution of end-to-end arguments}
+\item 1
+\item 2
 \end{itemize}
-\end{itemize}
-\begin{beamerboxesrounded}[shadow]{Additional Contributions}
-{\small This work, as well as providing alternatives analysis with respect to security in information-centric architectures and approaches, also demonstrates the first implementation of granular context-sensitive security functionality embedded in an information-centric network.}
-\end{beamerboxesrounded}
+\end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{switch $\Longleftrightarrow$  controller}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{ra-sw-c}
+\column{.5\textwidth}
+\begin{itemize}
+\item 1
+\item 2
+\end{itemize}
+\end{columns}
+\end{frame}
 
+\begin{frame}
+\frametitle{controller $\Longleftrightarrow$ repository}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{ra-c-r}
+\column{.5\textwidth}
+\begin{itemize}
+\item 1
+\item 2
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{controller $\Longleftrightarrow$  application}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{ra-c-a}
+\column{.5\textwidth}
+\begin{itemize}
+\item 1
+\item 2
+\end{itemize}
+\end{columns}
+\end{frame}
 
 \begin{frame}[c]
 \begin{center}
 \textbf{Questions? Comments?}
 \end{center}
 \end{frame}
-
-%\input{content-slides/references}
 
 \end{document}
 
