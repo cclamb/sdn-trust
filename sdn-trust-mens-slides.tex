@@ -5,7 +5,7 @@
 \usepackage{epsfig}
 \usepackage{psfrag}
 \usepackage[english]{babel}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{listings}
@@ -44,12 +44,12 @@
 
 %---------------------------Title frame definition------------------------------------- 
 
-\title{Information Protection in Content-centric Networks}
+\title{Towards Robust Trust in Software Defined Networks}
 \author [Chris]{Christopher C. Lamb}
 \institute[University of New Mexico]{
 \inst {}Department of Electrical and Computer Engineering\\
 University of New Mexico}
-\date{November 6, 2012}
+\date{December 7, 2014}
 \titlegraphic{
 \begin{figure} 
 \includegraphics[width = 7cm]{UNM}
@@ -108,23 +108,23 @@ Moving to centralized management has profound implications.
 \end{columns}
 \end{frame}
 
-\begin{frame}
-\frametitle{Brave New Implications}
-\begin{columns}[T]
-\column{.5\textwidth}
-\includegraphics[height=2.75in]{reference-model}
-\column{.5\textwidth}
-\begin{beamerboxesrounded}[shadow]{Unintended Results of SDN}
-Moving to centralized management has profound implications.
-\begin{itemize}
-\item Trust loci provides greater spoofing opportunities
-\item Smaller number of involved systems refines target space
-\item Trust concentration leads to larger attack surface
-\item Single compromise can have outsized effects
-\end{itemize}
-\end{beamerboxesrounded}
-\end{columns}
-\end{frame}
+%\begin{frame}
+%\frametitle{Brave New Implications}
+%\begin{columns}[T]
+%\column{.5\textwidth}
+%\includegraphics[height=2.75in]{reference-model}
+%\column{.5\textwidth}
+%\begin{beamerboxesrounded}[shadow]{Unintended Results of SDN}
+%Moving to centralized management has profound implications.
+%\begin{itemize}
+%\item Trust loci provides greater spoofing opportunities
+%\item Smaller number of involved systems refines target space
+%\item Trust concentration leads to larger attack surface
+%\item Single compromise can have outsized effects
+%\end{itemize}
+%\end{beamerboxesrounded}
+%\end{columns}
+%\end{frame}
 
 \begin{frame}
 \frametitle{host $\Longleftrightarrow$ switch}
@@ -133,8 +133,11 @@ Moving to centralized management has profound implications.
 \includegraphics[height=2.75in]{ra-h-sw}
 \column{.5\textwidth}
 \begin{itemize}
-\item 1
-\item 2
+\item {\color{orange} Confidentiality not critical}
+\item {\color{red} Integrity vital}
+\item {\color{orange} Availability expected} 
+\item {\color{green} Non-repudiation nice under certain circumstances}
+\item {\color{green} Authentication likewise handy at times}
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -146,8 +149,11 @@ Moving to centralized management has profound implications.
 \includegraphics[height=2.75in]{ra-sw-c}
 \column{.5\textwidth}
 \begin{itemize}
-\item 1
-\item 2
+\item {\color{orange} Confidentiality only important in some edge cases}
+\item {\color{red} Integrity again vital}
+\item {\color{red} Availability paramount} 
+\item {\color{orange} Non-repudiation perhaps more important}
+\item {\color{red} Authentication of controllers important}
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -159,8 +165,11 @@ Moving to centralized management has profound implications.
 \includegraphics[height=2.75in]{ra-c-r}
 \column{.5\textwidth}
 \begin{itemize}
-\item 1
-\item 2
+\item {\color{orange} Confidentiality not always vital}
+\item {\color{red} Integrity imporant, as usual}
+\item {\color{green} Availability not vital} 
+\item {\color{green} Non-repudiation a big less important for core control plane functions}
+\item {\color{red} Authentication of repositories important}
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -172,8 +181,11 @@ Moving to centralized management has profound implications.
 \includegraphics[height=2.75in]{ra-c-a}
 \column{.5\textwidth}
 \begin{itemize}
-\item 1
-\item 2
+\item {\color{orange} Confidentiality based on application}
+\item {\color{red} Integrity important, as usual}
+\item {\color{green} Availability not vital} 
+\item {\color{green} Non-repudiation needs again based on application}
+\item {\color{red} Authentication of certain applications important}
 \end{itemize}
 \end{columns}
 \end{frame}

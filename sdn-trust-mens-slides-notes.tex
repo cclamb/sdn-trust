@@ -1,0 +1,139 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fourier}
+\usepackage{xcolor}
+\author{Christopher C. Lamb}
+\begin{document}
+\section{Title}
+
+\section{Networks in the Bad Old Days}
+
+\section{The Brave New World!}
+
+\section{Brave New implications}
+
+\newpage
+\section{host $\Longleftrightarrow$ switch}
+\begin{itemize}
+\item {\color{orange} Confidentiality not critical}
+	\begin{itemize}
+	\item switches don't consume host services
+	\item hosts don't confirm delivery by a specific switch (usually)
+	\item no {\sl explicit} control traffic
+	\end{itemize}
+\item {\color{red} Integrity vital}
+	\begin{itemize}
+	\item hosts expect reliable data plane information transfer
+	\item switches don't communicate to hosts
+	\end{itemize}
+\item {\color{orange} Availability expected} 
+	\begin{itemize}
+	\item Hosts do want networks up when they need them, but a data plane concern
+	\end{itemize}
+\item {\color{green} Non-repudiation}
+	\begin{itemize}
+	\item Hosts don't expect non-repudiation of traffic handling
+	\item Switches don't handle non-repudiation of handled traffic (though other devices might to this, forensics, auditing, etc.)
+	\end{itemize}
+\item {\color{green} Authentication}
+	\begin{itemize}
+	\item Hosts generally don't need to authenticate a switch, though with very sensitive traffic this may be important
+	\item Switches may authenticate hosts when doing data plane traffic prioritization or service shaping
+	\end{itemize}
+\end{itemize}
+
+\newpage
+\section{switch $\Longleftrightarrow$ controller}
+\begin{itemize}
+\item {\color{orange} Confidentiality only important in some edge cases}
+	\begin{itemize}
+	\item Not generally important as the effects of any controller messages is visible
+	\item Defense-oriented messages (e.g. related to malicious traffic redirection) may need to be confidential; this implies all traffic kept confidential in these cases
+	\end{itemize}
+\item {\color{red} Integrity again vital}
+	\begin{itemize}
+	\item Switches need to be able to trust controller messages
+	\item Controllers will very likely issue commands to specific switches based on switch status, so messages from switches to controllers must be trustworthy
+	\end{itemize}
+\item {\color{red} Availability paramount} 
+	\begin{itemize}
+	\item Controllers must be available to switches for SDN to work correctly; otherwise, switch behavior is undefined, though they will usually use the most recent flow table for a while
+	\item Switch availability is much less important from a control-plane perspective
+	\end{itemize}
+\item {\color{orange} Non-repudiation perhaps more important}
+	\begin{itemize}
+	\item Useful for forensics, network debugging, to see which controllers issued which commands and past switch status
+	\item Useful for trust measures
+	\end{itemize}
+\item {\color{red} Authentication of controllers important}
+	\begin{itemize}
+	\item Switches should be able to authenticate a given controller to establish controller authority
+	\item Controllers may only need to authenciate switches in high security environments, to assure that all managed switches are in fact authorized to handle traffic on a network
+	\end{itemize}
+\end{itemize}
+
+\newpage
+\section{controller $\Longleftrightarrow$ repository}
+Important to note, this model can be implemented via application access to controllers as well
+\begin{itemize}
+\item {\color{orange} Confidentiality not always vital}
+	\begin{itemize}
+	\item Controllers may need to access repositories for global state information
+	\item Repositories may send information to controllers
+	\item In either case, the information can generally be derived from other sources
+	\item Security-related information may be important in some cases
+	\end{itemize}
+\item {\color{red} Integrity important, as usual}
+	\begin{itemize}
+	\item Controllers need to be able to trust actionable information from repositories
+	\item Repositories generally have no data dependencies on controllers, though they may in cases where controllers report status to enable global network awareness
+	\end{itemize}
+\item {\color{green} Availability not vital} 
+	\begin{itemize}
+	\item Controllers can make local decisions that can aggregate into a nearly optimal global state
+	\item Global state information becomes more important at scale as the cost of cumulative inefficiency grows
+	\end{itemize}
+\item {\color{green} Non-repudiation a big less important for core control plane functions}
+	\begin{itemize}
+	\item Again most useful for trust evaluation and forensics
+	\end{itemize}
+\item {\color{red} Authentication of repositories important}
+	\begin{itemize}
+	\item If a controller is going to use repository supplied information to make control decisions, the source of that information must be trustworthy
+	\item Likewise, repositories collecting information from controllers (or other sources) must be able to have confidence that the information delivered is from a source that can be trusted
+	\end{itemize}
+\end{itemize}
+
+\newpage
+\section{controller $\Longleftrightarrow$ application}
+Applications are generalities of the previous repository construct, but run into issues when we have multiple applications accessing a given controller
+\begin{itemize}
+\item {\color{orange} Confidentiality based on application}
+	\begin{itemize}
+	\item Confidentiality requirements are really based on the application type and the information submitted to the controller; e.g. logging apps may not be as important as security apps
+	\end{itemize}
+\item {\color{red} Integrity important, as usual}
+	\begin{itemize}
+	\item Controllers need to be able to trust actionable information, and applications need to be able to trust controllers for data collection
+	\end{itemize}
+\item {\color{green} Availability not vital} 
+	\begin{itemize}
+	\item Heavily dependent on the specific application
+	\end{itemize}
+\item {\color{green} Non-repudiation needs again based on application}
+	\begin{itemize}
+	\item Most useful for trust evaluation and forensics
+	\end{itemize}
+\item {\color{red} Authentication of certain applications important}
+	\begin{itemize}
+	\item If an app can influence a controller, it must be authenticated
+	\item If a controller submits data to an app, it must be authenticated
+	\end{itemize}
+\end{itemize}
+
+
+\end{document}
