@@ -132,6 +132,8 @@ Moving to centralized management has profound implications.
 \column{.5\textwidth}
 \includegraphics[height=2.75in]{ra-h-sw}
 \column{.5\textwidth}
+(In the following slides, {\color{red} red} is very important, {\color{orange} orange} less so, and {\color{green} green} even less).
+\\~\\
 \begin{itemize}
 \item {\color{orange} Confidentiality not critical}
 \item {\color{red} Integrity vital}
@@ -188,6 +190,47 @@ Moving to centralized management has profound implications.
 \item {\color{red} Authentication of certain applications important}
 \end{itemize}
 \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attribute Commonality}
+\begin{columns}[T]
+\column{.5\textwidth}
+\includegraphics[height=2.75in]{reference-model}
+\column{.5\textwidth}
+So overall, how important are our typical cyber-security attributes?
+\\~\\
+\begin{itemize}
+\item {\color{green} Confidentiality}
+\item {\color{red} Integrity}
+\item {\color{orange} Availability}
+\item {\color{green} Non-repudiation}
+\item {\color{red} Authentication}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Differentiating Attributes of SDN}
+Compared to other more agent-centric systems, SDN control systems have some advantages:
+\begin{itemize}
+\item Limited control-plane volatility
+	\begin{itemize}
+	\item MANETs and agent-based systems are much more chaotic with respect to functional distribution (many devices wear multiple commmunication hats) and suffer from frequent attach / detach issues
+	\end{itemize}
+\item Centralized High-Availability
+	\begin{itemize}
+	\item Any high-availability requirements are constrained to specific functional areas (e.g. controllers)
+	\end{itemize}
+\item Clearly Defined Roles
+	\begin{itemize}
+	\item SDN entities have clear roles; systems in MANETs or agent-based systems frequently do not
+	\end{itemize}
+\item Predicable Expected Behavior
+	\begin{itemize}
+	\item Clear roles should lead to more predicable behavior and correspondingly easier behavioral outlier detection
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[c]

@@ -135,5 +135,56 @@ Applications are generalities of the previous repository construct, but run into
 	\end{itemize}
 \end{itemize}
 
+\newpage
+\section{Attribute Commonality}
+\begin{itemize}
+\item {\color{green} Confidentiality}
+	\begin{itemize}
+	\item Usually information can be derived from network behavior
+	\item Exceptions for cyber-security use cases; these can drive confidentiality needs into entire system
+	\end{itemize}
+\item {\color{red} Integrity}
+	\begin{itemize}
+	\item Actionable information leading to control-plane decisions needs to be trustworthy
+	\end{itemize}
+\item {\color{orange} Availability}
+	\begin{itemize}
+	\item Of varying importance
+	\item Most important in switch $\Longleftrightarrow$ controller relationships
+	\end{itemize}
+\item {\color{green} Non-repudiation}
+	\begin{itemize}
+	\item Not that important, usually relegated to trust or forensics use cases
+	\item Cheap to add if we already have authentication and message integrity though
+	\end{itemize}
+\item {\color{red} Authentication}
+	\begin{itemize}
+	\item Related to integrity
+	\item Control agents (controllers, etc.) need to be able to establish that a source is trustworthy as well as that the information from that source has not been tampered with
+	\end{itemize}
+\end{itemize}
+
+\newpage
+\section{Differentiating Attributes of SDN}
+Compared to other more agent-centric systems, SDN control systems have some advantages:
+\begin{itemize}
+\item Limited control-plane volatility
+	\begin{itemize}
+	\item MANETs and agent-based systems are much more chaotic with respect to functional distribution (many devices wear multiple commmunication hats) and suffer from frequent attach / detach issues
+	\end{itemize}
+\item Centralized High-Availability
+	\begin{itemize}
+	\item Any high-availability requirements are constrained to specific functional areas (e.g. controllers)
+	\end{itemize}
+\item Clearly Defined Roles
+	\begin{itemize}
+	\item SDN entities have clear roles; systems in MANETs or agent-based systems frequently do not
+	\end{itemize}
+\item Predicable Expected Behavior
+	\begin{itemize}
+	\item Clearly defined roles should lead to more predicable behavior and correspondingly easier behavioral outlier detection
+	\end{itemize}
+\end{itemize}
+
 
 \end{document}
